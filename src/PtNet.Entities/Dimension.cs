@@ -2,25 +2,25 @@
 
 namespace PtNet.Entities
 {
-    public class Money
+    public class Dimension
     {
-        public decimal Amount { get; set; }
-        public CurrencyCode Currency { get; }
+        public decimal Value { get; set; }
 
-        public Money() : this(0.0m, CurrencyCode.XXX)
+        public LengthUnits Units { get; }
+
+        public Dimension() : this(0.0m, LengthUnits.Mm)
         {
         }
 
-        public Money (decimal amount, CurrencyCode currency)
+        public Dimension(decimal value, LengthUnits units)
         {
-            Amount = amount;
-            Currency = currency;
+            Value = value;
+            Units = units;
         }
 
         public override string ToString()
         {
-            // TODO: Implement ToString() method
-            return base.ToString();
+            return $"{Value} {Units}";
         }
 
         public override bool Equals(object obj)
@@ -35,61 +35,61 @@ namespace PtNet.Entities
             return base.GetHashCode();
         }
 
-        public static Money operator +(Money x, Money y)
+        public static Dimension operator +(Dimension x, Dimension y)
         {
             // TODO: Implement + operator
             throw new NotImplementedException();
         }
 
-        public static Money operator -(Money x, Money y)
+        public static Dimension operator -(Dimension x, Dimension y)
         {
             // TODO: Implement - operator
             throw new NotImplementedException();
         }
 
-        public static Money operator *(Money x, Money y)
+        public static Dimension operator *(Dimension x, Dimension y)
         {
             // TODO: Implement * operator
             throw new NotImplementedException();
         }
 
-        public static Money operator /(Money x, Money y)
+        public static Dimension operator /(Dimension x, Dimension y)
         {
             // TODO: Implement / operator
             throw new NotImplementedException();
         }
 
-        public static Money operator ==(Money x, Money y)
+        public static Dimension operator ==(Dimension x, Dimension y)
         {
             // TODO: Implement == operator
             throw new NotImplementedException();
         }
 
-        public static Money operator !=(Money x, Money y)
+        public static Dimension operator !=(Dimension x, Dimension y)
         {
             // TODO: Implement != operator
             throw new NotImplementedException();
         }
 
-        public static Money operator >(Money x, Money y)
+        public static Dimension operator >(Dimension x, Dimension y)
         {
             // TODO: Implement > operator
             throw new NotImplementedException();
         }
 
-        public static Money operator <(Money x, Money y)
+        public static Dimension operator <(Dimension x, Dimension y)
         {
             // TODO: Implement < operator
             throw new NotImplementedException();
         }
 
-        public static Money operator >=(Money x, Money y)
+        public static Dimension operator >=(Dimension x, Dimension y)
         {
             // TODO: Implement >= operator
             throw new NotImplementedException();
         }
 
-        public static Money operator <=(Money x, Money y)
+        public static Dimension operator <=(Dimension x, Dimension y)
         {
             // TODO: Implement <= operator
             throw new NotImplementedException();
