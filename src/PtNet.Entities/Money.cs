@@ -17,5 +17,23 @@ namespace PtNet.Entities
             Amount = amount;
             Currency = currency;
         }
+
+        public override string ToString()
+        {
+            // TODO: Implement ToString() method
+            return base.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            // TODO: Implement Equals() method
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            // TODO: Implement GetHashCode() method
+            return base.GetHashCode();
+        }
     }
 }
