@@ -35,5 +35,65 @@ namespace PtNet.Entities
             // TODO: Implement GetHashCode() method
             return base.GetHashCode();
         }
+
+        public static Money operator +(Money x, Money y)
+        {
+            // TODO: Implement + operator
+            throw new NotImplementedException();
+        }
+
+        public static Money operator -(Money x, Money y)
+        {
+            // TODO: Implement - operator
+            throw new NotImplementedException();
+        }
+
+        public static Money operator *(Money x, Money y)
+        {
+            // TODO: Implement * operator
+            throw new NotImplementedException();
+        }
+
+        public static Money operator /(Money x, Money y)
+        {
+            // TODO: Implement / operator
+            throw new NotImplementedException();
+        }
+
+        public static Money operator ==(Money x, Money y)
+        {
+            // TODO: Implement == operator
+            throw new NotImplementedException();
+        }
+
+        public static Money operator !=(Money x, Money y)
+        {
+            // TODO: Implement != operator
+            throw new NotImplementedException();
+        }
+
+        public static Money operator >(Money x, Money y)
+        {
+            // TODO: Implement > operator
+            throw new NotImplementedException();
+        }
+
+        public static Money operator <(Money x, Money y)
+        {
+            // TODO: Implement < operator
+            throw new NotImplementedException();
+        }
+
+        public static Money operator >=(Money x, Money y)
+        {
+            // TODO: Implement >= operator
+            throw new NotImplementedException();
+        }
+
+        public static Money operator <=(Money x, Money y)
+        {
+            // TODO: Implement <= operator
+            throw new NotImplementedException();
+        }
     }
 }
