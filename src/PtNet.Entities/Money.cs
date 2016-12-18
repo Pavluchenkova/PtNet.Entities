@@ -19,80 +19,106 @@ namespace PtNet.Entities
 
         public override string ToString()
         {
-            // TODO: Implement ToString() method
-            return base.ToString();
+            return Amount.ToString() + " " + Currency.ToString();
         }
 
         public override bool Equals(object obj)
         {
-            // TODO: Implement Equals() method
-            return base.Equals(obj);
+            //Check for null and compare run-time types.
+            if ((obj == null) || !GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Money money = (Money)obj;
+                return (this.Amount == money.Amount) && (this.Currency == money.Currency);
+            }  
         }
 
         public override int GetHashCode()
         {
-            // TODO: Implement GetHashCode() method
-            return base.GetHashCode();
+            return (int)this.Amount * (int)this.Currency;
         }
 
         public static Money operator +(Money x, Money y)
         {
-            // TODO: Implement + operator
-            throw new NotImplementedException();
+            if (x.Currency != y.Currency)
+                throw new InvalidOperationException();
+            else
+                return new Money(x.Amount + y.Amount, x.Currency);
         }
 
         public static Money operator -(Money x, Money y)
         {
-            // TODO: Implement - operator
-            throw new NotImplementedException();
+            if (x.Currency != y.Currency)
+                throw new InvalidOperationException();
+            else
+                return new Money(x.Amount - y.Amount, x.Currency);
         }
 
         public static Money operator *(Money x, Money y)
         {
-            // TODO: Implement * operator
-            throw new NotImplementedException();
+            if (x.Currency != y.Currency)
+                throw new InvalidOperationException();
+            else
+                return new Money(x.Amount * y.Amount, x.Currency);
         }
 
         public static Money operator /(Money x, Money y)
         {
-            // TODO: Implement / operator
-            throw new NotImplementedException();
+            if (x.Currency != y.Currency)
+                throw new InvalidOperationException();
+            else
+                return new Money(x.Amount / y.Amount, x.Currency);
         }
 
-        public static Money operator ==(Money x, Money y)
+        public static bool operator ==(Money x, Money y)
         {
-            // TODO: Implement == operator
-            throw new NotImplementedException();
+            if (x.Currency != y.Currency)
+                throw new InvalidOperationException();
+            else
+                return x.Amount == y.Amount;
         }
 
-        public static Money operator !=(Money x, Money y)
+        public static bool operator !=(Money x, Money y)
         {
-            // TODO: Implement != operator
-            throw new NotImplementedException();
+            if (x.Currency != y.Currency)
+                throw new InvalidOperationException();
+            else
+                return x.Amount != y.Amount;
         }
 
-        public static Money operator >(Money x, Money y)
+        public static bool operator >(Money x, Money y)
         {
-            // TODO: Implement > operator
-            throw new NotImplementedException();
+            if (x.Currency != y.Currency)
+                throw new InvalidOperationException();
+            else
+                return x.Amount > y.Amount;
         }
 
-        public static Money operator <(Money x, Money y)
+        public static bool operator <(Money x, Money y)
         {
-            // TODO: Implement < operator
-            throw new NotImplementedException();
+            if (x.Currency != y.Currency)
+                throw new InvalidOperationException();
+            else
+                return x.Amount < y.Amount;
         }
 
-        public static Money operator >=(Money x, Money y)
+        public static bool operator >=(Money x, Money y)
         {
-            // TODO: Implement >= operator
-            throw new NotImplementedException();
+            if (x.Currency != y.Currency)
+                throw new InvalidOperationException();
+            else
+                return x.Amount >= y.Amount;
         }
 
-        public static Money operator <=(Money x, Money y)
+        public static bool operator <=(Money x, Money y)
         {
-            // TODO: Implement <= operator
-            throw new NotImplementedException();
+            if (x.Currency != y.Currency)
+                throw new InvalidOperationException();
+            else
+                return x.Amount <= y.Amount;
         }
     }
 }

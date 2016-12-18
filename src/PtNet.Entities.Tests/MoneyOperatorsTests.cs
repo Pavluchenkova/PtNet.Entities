@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace PtNet.Entities.Tests
 {
     [TestClass]
-    class MoneyOperatorsTests
+    public class MoneyOperatorsTests
     {
         [TestMethod]
         public void Money_plus_operator_should_add_two_Money_objects_correctly()
