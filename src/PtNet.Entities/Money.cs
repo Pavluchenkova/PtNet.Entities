@@ -19,21 +19,25 @@ namespace PtNet.Entities
 
         public override string ToString()
         {
-            return Amount.ToString() + " " + Currency.ToString();
+            return $"{Amount} {Currency}";
         }
 
         public override bool Equals(object obj)
         {
-            //Check for null and compare run-time types.
-            if ((obj == null) || !GetType().Equals(obj.GetType()))
+            if (obj == null)
             {
                 return false;
             }
+
+            var money = obj as Money;
+            if (money != null)
+            {
+                return (this.Amount == money.Amount) && (this.Currency == money.Currency);
+            }
             else
             {
-                Money money = (Money)obj;
-                return (this.Amount == money.Amount) && (this.Currency == money.Currency);
-            }  
+                return false;
+            }
         }
 
         public override int GetHashCode()
@@ -43,82 +47,82 @@ namespace PtNet.Entities
 
         public static Money operator +(Money x, Money y)
         {
-            if (x.Currency != y.Currency)
-                throw new InvalidOperationException();
-            else
-                return new Money(x.Amount + y.Amount, x.Currency);
+           CurrencyCheck(x, y);
+           return new Money(x.Amount + y.Amount, x.Currency);
         }
 
         public static Money operator -(Money x, Money y)
         {
-            if (x.Currency != y.Currency)
-                throw new InvalidOperationException();
-            else
-                return new Money(x.Amount - y.Amount, x.Currency);
+          CurrencyCheck(x,y);        
+          return new Money(x.Amount - y.Amount, x.Currency);
         }
 
         public static Money operator *(Money x, Money y)
         {
-            if (x.Currency != y.Currency)
-                throw new InvalidOperationException();
-            else
-                return new Money(x.Amount * y.Amount, x.Currency);
+           CurrencyCheck(x, y);
+           return new Money(x.Amount * y.Amount, x.Currency);
         }
 
         public static Money operator /(Money x, Money y)
         {
-            if (x.Currency != y.Currency)
-                throw new InvalidOperationException();
-            else
-                return new Money(x.Amount / y.Amount, x.Currency);
+            CurrencyCheck(x, y);
+            return new Money(x.Amount / y.Amount, x.Currency);
         }
 
         public static bool operator ==(Money x, Money y)
         {
-            if (x.Currency != y.Currency)
-                throw new InvalidOperationException();
-            else
-                return x.Amount == y.Amount;
+            if ((object)x == null || (object)y == null)
+            {
+                return false;
+            }
+            CurrencyCheck(x, y);
+            return x.Amount == y.Amount;          
         }
 
         public static bool operator !=(Money x, Money y)
         {
-            if (x.Currency != y.Currency)
-                throw new InvalidOperationException();
-            else
-                return x.Amount != y.Amount;
+            if ((object)x == null || (object)y == null)
+            {
+                return false;
+            }
+            CurrencyCheck(x, y);
+            return x.Amount != y.Amount;
         }
 
         public static bool operator >(Money x, Money y)
         {
-            if (x.Currency != y.Currency)
-                throw new InvalidOperationException();
-            else
-                return x.Amount > y.Amount;
+            if ((object)x == null || (object)y == null)
+            {
+                return false;
+            }
+            CurrencyCheck(x, y);
+            return x.Amount > y.Amount;
         }
 
         public static bool operator <(Money x, Money y)
         {
-            if (x.Currency != y.Currency)
-                throw new InvalidOperationException();
-            else
-                return x.Amount < y.Amount;
+            CurrencyCheck(x, y);
+            return x.Amount < y.Amount;       
         }
 
         public static bool operator >=(Money x, Money y)
         {
-            if (x.Currency != y.Currency)
-                throw new InvalidOperationException();
-            else
-                return x.Amount >= y.Amount;
+            CurrencyCheck(x, y);
+            return x.Amount >= y.Amount;
         }
 
         public static bool operator <=(Money x, Money y)
         {
+            CurrencyCheck(x, y);
+            return x.Amount <= y.Amount;
+        }
+
+        private static void CurrencyCheck(Money x, Money y)
+        {
             if (x.Currency != y.Currency)
+            {
                 throw new InvalidOperationException();
-            else
-                return x.Amount <= y.Amount;
+            }
         }
     }
 }

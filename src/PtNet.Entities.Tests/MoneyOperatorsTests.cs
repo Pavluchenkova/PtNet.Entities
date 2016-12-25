@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PtNet.Entities.Tests
 {
@@ -20,7 +16,8 @@ namespace PtNet.Entities.Tests
 
             var actual = x + y;
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.Amount, actual.Amount);
+            Assert.AreEqual(expected.Currency, actual.Currency);
         }
 
         [TestMethod]
@@ -33,7 +30,8 @@ namespace PtNet.Entities.Tests
 
             var actual = x - y;
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.Amount, actual.Amount);
+            Assert.AreEqual(expected.Currency, actual.Currency);
         }
 
         [TestMethod]
@@ -46,7 +44,8 @@ namespace PtNet.Entities.Tests
 
             var actual = x * y;
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.Amount, actual.Amount);
+            Assert.AreEqual(expected.Currency, actual.Currency);
         }
 
         [TestMethod]
@@ -59,7 +58,8 @@ namespace PtNet.Entities.Tests
 
             var actual = x / y;
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.Amount, actual.Amount);
+            Assert.AreEqual(expected.Currency, actual.Currency);
         }
 
         [TestMethod]

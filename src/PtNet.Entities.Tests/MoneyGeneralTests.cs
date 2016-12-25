@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace PtNet.Entities.Tests
 {
@@ -13,7 +12,8 @@ namespace PtNet.Entities.Tests
 
             var actual = new Money();
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.Amount, actual.Amount);
+            Assert.AreEqual(expected.Currency, actual.Currency);
         }
         
         [TestMethod]
