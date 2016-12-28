@@ -7,7 +7,7 @@ namespace PtNet.Entities.Tests
     public class MoneyOperatorsTests
     {
         [TestMethod]
-        public void Money_plus_operator_should_add_two_Money_objects_correctly()
+        public void Plus_operator_should_add_two_Money_objects_correctly()
         {
             var x = new Money(25, CurrencyCode.XXX);
             var y = new Money(15, CurrencyCode.XXX);
@@ -21,7 +21,7 @@ namespace PtNet.Entities.Tests
         }
 
         [TestMethod]
-        public void Money_minus_operator_should_substract_two_Money_objects_correctly()
+        public void Minus_operator_should_substract_two_Money_objects_correctly()
         {
             var x = new Money(25, CurrencyCode.XXX);
             var y = new Money(15, CurrencyCode.XXX);
@@ -35,7 +35,7 @@ namespace PtNet.Entities.Tests
         }
 
         [TestMethod]
-        public void Money_multiply_operator_should_multiply_two_Money_objects_correctly()
+        public void Multiply_operator_should_multiply_two_Money_objects_correctly()
         {
             var x = new Money(25, CurrencyCode.XXX);
             var y = new Money(2, CurrencyCode.XXX);
@@ -49,7 +49,7 @@ namespace PtNet.Entities.Tests
         }
 
         [TestMethod]
-        public void Money_divide_operator_should_divide_two_Money_objects_correctly()
+        public void Divide_operator_should_divide_two_Money_objects_correctly()
         {
             var x = new Money(25, CurrencyCode.XXX);
             var y = new Money(5, CurrencyCode.XXX);
@@ -100,6 +100,60 @@ namespace PtNet.Entities.Tests
             var y = new Money(10, CurrencyCode.EUR);
 
             var result = x / y;
+        }
+        [TestMethod]
+        public void Equals_operator_should_return_true_for_objects_with_equal_amount_and_equal_currency()
+        {
+            var x = new Money(10, CurrencyCode.AED);
+            var y = new Money(10, CurrencyCode.AED);
+            var expected = true;
+            var actual = x == y;
+            Assert.AreEqual(expected, actual);       
+        }
+        [TestMethod]
+        public void NotEquals_operator_should_return_true_for_objects_with_not_equal_amount()
+        {
+            var x = new Money(10, CurrencyCode.AED);
+            var y = new Money(5, CurrencyCode.AED);
+            var expected = true;
+            var actual = x != y;
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void GreaterThan_operator_should_return_true_if_first_operands_amount_greater_than_second_operands_amount()
+        {
+            var x = new Money(45, CurrencyCode.AED);
+            var y = new Money(10, CurrencyCode.AED);
+            var expected = true;
+            var actual = x > y;
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void LessThan_operator_should_return_true_if_first_operands_amount_less_than_second_operands_amount()
+        {
+            var x = new Money(5, CurrencyCode.AED);
+            var y = new Money(10, CurrencyCode.AED);
+            var expected = true;
+            var actual = x < y;
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void GreaterThanOrEquals_operator_should_return_true_if_first_operands_amount_greater_than_or_equals_to_second_operands_amount()
+        {
+            var x = new Money(10, CurrencyCode.AED);
+            var y = new Money(10, CurrencyCode.AED);
+            var expected = true;
+            var actual = x >= y;
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void LessThanOrEquals_operator_should_return_true_if_first_operands_amount_less_than_or_equals_to_second_operands_amount()
+        {
+            var x = new Money(5, CurrencyCode.AED);
+            var y = new Money(10, CurrencyCode.AED);
+            var expected = true;
+            var actual = x <= y;
+            Assert.AreEqual(expected, actual);
         }
     }
 }

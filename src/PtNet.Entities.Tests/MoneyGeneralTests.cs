@@ -6,7 +6,7 @@ namespace PtNet.Entities.Tests
     public class MoneyGeneralTests
     {
         [TestMethod]
-        public void Money_default_constructor_should_create_proper_default_Money()
+        public void Default_constructor_should_create_proper_default_Money()
         {
             var expected = new Money(0.0m, CurrencyCode.XXX);
 
