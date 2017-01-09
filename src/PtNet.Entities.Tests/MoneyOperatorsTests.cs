@@ -120,7 +120,7 @@ namespace PtNet.Entities.Tests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void GreaterThan_operator_should_return_true_if_first_operands_amount_greater_than_second_operands_amount()
+        public void GreahterThan_operator_should_return_true_if_first_operands_amount_greahter_than_second_operands_amount()
         {
             var x = new Money(45, CurrencyCode.AED);
             var y = new Money(10, CurrencyCode.AED);
@@ -138,51 +138,46 @@ namespace PtNet.Entities.Tests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void GreaterThanOrEquals_operator_should_return_true_if_first_operands_amount_greater_than_or_equals_to_second_operands_amount()
+        public void GreatherThanOrEquals_operator_should_return_true_if_first_operands_amount_greather_than_second_operands_amount()
         {
             var x = new Money(10, CurrencyCode.AED);
             var y = new Money(5, CurrencyCode.AED);
-            var z = new Money(10, CurrencyCode.AED);
 
             var expected = true;
-            var actual1 = x >= y;
-            var actual2 = x >= z;
-            Assert.AreEqual(expected, actual1);
-            Assert.AreEqual(expected, actual2);
-        }
-        [TestMethod]
-        public void LessThanOrEquals_operator_should_return_true_if_first_operands_amount_less_than_or_equals_to_second_operands_amount()
-        {
-            var x = new Money(5, CurrencyCode.AED);
-            var y = new Money(10, CurrencyCode.AED);
-            var z = new Money(5, CurrencyCode.AED);
-
-            var expected = true;
-            var actual1 = x <= y;
-            var actual2 = x <= z;
-            Assert.AreEqual(expected, actual1);
-            Assert.AreEqual(expected, actual2);
+            var actual = x >= y;
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void All_Operators_should_return_false_if_one_of_operands_is_null()
+        public void GreatherThanOrEquals_operator_should_return_true_if_first_operands_amount_equals_to_second_operands_amount()
+        {
+            var x = new Money(10, CurrencyCode.AED);
+            var y = new Money(10, CurrencyCode.AED);
+
+            var expected = true;
+            var actual = x >= y;
+            Assert.AreEqual(expected, actual);
+        }
+               
+        [TestMethod]
+        public void LessThanOrEquals_operator_should_return_true_if_first_operands_amount_less_than_second_operands_amount()
         {
             var x = new Money(5, CurrencyCode.AED);
             var y = new Money(10, CurrencyCode.AED);
-            x = null;
-            var expected = false;
-            var actual1 = x == y;
-            var actual2 = x != y;
-            var actual3 = x > y;
-            var actual4 = x < y;
-            var actual5 = x >= y;
-            var actual6 = x <= y;
-            Assert.AreEqual(expected, actual1);
-            Assert.AreEqual(expected, actual2);
-            Assert.AreEqual(expected, actual3);
-            Assert.AreEqual(expected, actual4);
-            Assert.AreEqual(expected, actual5);
-            Assert.AreEqual(expected, actual6);
+
+            var expected = true;
+            var actual = x <= y;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LessThanOrEquals_operator_should_return_true_if_first_operands_amount_equals_to_second_operands_amount()
+        {
+            var x = new Money(10, CurrencyCode.AED);
+            var y = new Money(10, CurrencyCode.AED);
+            var expected = true;
+            var actual = x >= y;
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -202,6 +197,72 @@ namespace PtNet.Entities.Tests
             var y = new Money(10, CurrencyCode.AED);
             var expected = false;
             var actual = x != y;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void EqualsOperator_should_return_false_if_one_of_operands_is_null()
+        {
+            Money x = null;
+            var y = new Money(10, CurrencyCode.AED);
+        
+            var expected = false;
+            var actual = x == y;        
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void NotEqualsOperator_should_return_false_if_one_of_operands_is_null()
+        {
+            Money x = null;
+            var y = new Money(10, CurrencyCode.AED);
+            
+            var expected = false;
+            var actual = x != y;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GreatherThanOperator_should_return_false_if_one_of_operands_is_null()
+        {
+            Money x = null;
+            var y = new Money(10, CurrencyCode.AED);
+
+            var expected = false;
+            var actual = x > y;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LessThanOperator_should_return_false_if_one_of_operands_is_null()
+        {
+            Money x = null;
+            var y = new Money(10, CurrencyCode.AED);
+           
+            var expected = false;
+            var actual = x < y;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GreatherOrEqualsOperator_should_return_false_if_one_of_operands_is_null()
+        {
+            Money x = null;
+            var y = new Money(10, CurrencyCode.AED);
+           
+            var expected = false;
+            var actual = x >= y;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LessOrEqualsOperator_should_return_false_if_one_of_operands_is_null()
+        {
+            Money x = null;
+            var y = new Money(10, CurrencyCode.AED);
+           
+            var expected = false;
+            var actual = x <= y;
             Assert.AreEqual(expected, actual);
         }
     }
