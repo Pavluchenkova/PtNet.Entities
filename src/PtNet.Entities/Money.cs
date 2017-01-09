@@ -101,18 +101,30 @@ namespace PtNet.Entities
 
         public static bool operator <(Money x, Money y)
         {
+            if ((object)x == null || (object)y == null)
+            {
+                return false;
+            }
             CurrencyCheck(x, y);
             return x.Amount < y.Amount;       
         }
 
         public static bool operator >=(Money x, Money y)
         {
+            if ((object)x == null || (object)y == null)
+            {
+                return false;
+            }
             CurrencyCheck(x, y);
             return x.Amount >= y.Amount;
         }
 
         public static bool operator <=(Money x, Money y)
         {
+            if ((object)x == null || (object)y == null)
+            {
+                return false;
+            }
             CurrencyCheck(x, y);
             return x.Amount <= y.Amount;
         }
